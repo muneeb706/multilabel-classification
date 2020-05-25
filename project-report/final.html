@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!-->
+<html class="no-js" lang="en">
+    <!--<![endif]-->
+    <head>
+        <!--- Basic Page Needs
+   ================================================== -->
+        <meta charset="utf-8">
+        <title>DL-Project</title>
+        <meta name="description" content="Final report of deep learning project in spring 2020">
+        <meta name="author" content="muneeb-shahid">
+        <!-- mobile specific metas
+   ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- CSS
+    ================================================== -->
+        <link rel="stylesheet" href="css/default.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/media-queries.css">
+        <!-- Script
+   ================================================== -->
+        <script src="js/modernizr.js"></script>
+    </head>
+    <body>
+	   <!-- Header
+   ================================================== -->
+   <header id="top">
+
+   	<div class="row">
+		<div class="header-content twelve columns">
+			<h1 id="logo-text"><a href="final.html" title="final report">Final Report</a></h1>
+			<p id="intro">Deep Learning Project Final Report Spring 2020</p>
+		</div>
+	</div>
+
+	   <nav id="nav-wrap"> 
+	   
+	   	<div class="row">    		            
+
+			   	<ul id="nav" class="nav">
+			      	<li ><a href="index.html">Proposal</a></li>
+                    <li ><a href="progress.html">Progress Report</a></li>
+                    <li class="current"><a href="final.html">Final Report</a></li>	
+			   	</ul> <!-- end #nav -->			   	 
+
+	   	</div> 
+
+	   </nav> <!-- end #nav-wrap --> 	     
+
+   </header> <!-- Header End -->
+		<br>
+        <div class="row">
+            <div class="header-content twelve columns">
+                <h1 id="logo-text">
+                    <a href="#" title="">Multilabel (Atmospheric Conditions and Land Cover) Classification of Amazon Rainforest Satellite Images</a>
+                </h1>
+                <p id="intro">Muneeb Shahid</p>
+            </div>
+        </div>
+        <!-- Content
+   ================================================== -->
+        <div id="content-wrap">
+            <div class="row">
+                <div id="main" class="tweleve columns">
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Project Summary</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <p>To help governments and local stakeholders understand the location of deforestation and human encroachment on forests, 
+								I will analyze small-scale deforestation and human activity influences from Amazon Rainforest satellite images. 
+								The goal of this analysis is to correctly label images with atmospheric conditions, common land cover / land use phenomena, 
+								and rare land cover / land use phenomena. I will experiment with different variations of convolutional network to output a set of predicted labels. 
+								In this project, I will explore and analyze how different architectures of convolutional neural network models perform in 
+								terms of training time, f2 score and generalization ability.</p>
+                        </div>
+                    </article>
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Problem Under Investigation </a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <p>
+                                In this project, we take on the Kaggle challenge “Planet:
+                                Understanding the Amazon from Space”. Our goal is to accurately label satellite images with atmospheric conditions,
+                                land use and land cover. The input to our algorithms is a satellite image of the
+                                Amazon basin. The image is represented as a 256x256 grid
+                                of pixels and 3 or 4 channels, described further in the data
+                                section. We then use variations of Convolutional Neural Network to
+                                output one or more predicted labels, belonging to a set of
+                                17 possible labels, describing atmospheric conditions, land
+                                cover and land use in the input image. 
+                                The primary performance metric is the average F2 score on the validation or
+                                test dataset.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Dataset Details</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <p>The dataset is provided by <a href="https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data" target="_blank">Kaggle</a>
+                                which contains 40479 labeled satellite images and there are 17 classes. 
+                                These classes address different aspects of the image content, for example, atmospheric conditions and land cover / user.  
+                                In the training dataset, the labels or classes are not evenly distributed. There are two types of images, JPG and TIF. 
+                                Both JPG and TIF images are 256x256 pixels. The JPG images have 3 channels - Red, Green, and Blue. 
+                                The TIF images have 4 channels - Red, Green, Blue, and IR.  The labels have significant correlations. 
+                                For example, every image has exactly one atmospheric condition label from among clear, haze, partly cloudy and cloudy. 
+                                Labels like “habitation” tend to occur with other markers of human activity. “Cultivation” and “agriculture” don’t co-occur in images.</p>
+                                <img src="./images/sample-train-data.PNG"/>
+                                <img src="./images/class-label-distribution.PNG"/>
+                                <ul>
+                                    <li>Dataset Link: <a href="https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data" target="_blank">Planet: Understanding the Amazon from Space</a></li>
+                                </ul>
+                        </div>
+                    </article>
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Related Work and Comparison</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+							<p>Research on satellite image processing has over 20 years
+								history. Simple neural network structure with only fully
+								connected layers has been used as a satellite image classifier
+								early in 1995. In addition, methods other than neural networks are still
+								being used for specific tasks. Statistical methods like
+								contrast statistical analysis (CSA), singular value
+								decomposition (SVD), temporally contiguous robust
+								matrix completion (TECROMAC) and non-additive
+								entropy has been used for quality evaluation, image
+								de-noising, matrix completion, image classification and
+								segmentation. Other than these, multi-class
+								SVMs has also been adopted to classify the airborne sensor data,
+								in conjunction with a few other methods such as discriminant analysis, decision tree, and multilayer perceptron neural network.
+								Multi-label classification can be seen as a related problem to image segmentation,
+								where the classes of detected image segments become labels of the image. 
+								A key aspect of the problem of labeling satellite imagery
+								involves dealing with correlated labels. 
+								Multi-label classification has been extensively studied, and a few types of
+                                approaches dominate.</p>
+                            <p>Multi-label classification
+                                can be interpreted as a ranking problem, where the authors combine a ranking objective with a
+                                convolutional neural network to beat prevalent benchmarks.
+                                Recent work has demonstrated the possibility of using Recurrent Neural Networks coupled with Convolutional
+                                Neural Networks for multi-label image annotation, using
+                                approaches that can be compared to the task of image captioning. In recent years, especially since 2015,
+                                training a deep neural network becomes easier with larger
+                                computational power, bigger training datasets and better
+                                image quality. Thus, convolutional neural network has
+                                become a popular tool for satellite image analysis in many
+                                areas of application, including image classification, land
+                                use classification, pattern detection in urban
+                                environment, solar power plant detection,
+                                orthoimagery segmentation, nighttime sky/cloud
+                                segmentation and face-like structure detection.
+                                Also, with the emergence of large dataset with
+                                high-resolution remote sensing (HRRS) imagery, different
+                                neural network models have been created and tuned for
+                                higher accuracy. Examples models such as traditional
+                                neural network, deep convolutional neural network,
+                                multi-channel pulse coupled neural network (m-PCNN)
+                                and recurrent neural network, have all been used to
+                                achieve a high accuracy on high-resolution satellite images.
+                                For this project, I will mainly evaluate the performance of
+                                deep convolutional neural networks on high-resolution
+                                Amazon satellite images.
+                            </p>
+                            <p>There are two common loss functions for multilabel
+                                classification – sigmoid cross entropy loss and support
+                                vector machine (SVM) with hinge loss. 
+                                As this is a multi-label classification problem, the primary loss used during training is binary / sigmoid cross-entropy. This
+                                loss optimizes the performance for each class independently.
+                            </p>
+                            <p> 
+                                Previous research typically uses coarse resolution images to study changes in rainforest, which is not enough
+                                for small-scale deforestation. Now we are provided with
+                                a high resolution dataset of the whole Amazon landform
+                                from the satellite.
+                                This is a subset of the general classification problem,
+                                which has been massively discussed in the context of not
+                                only image processing, but also machine learning and
+                                even deep learning. Methods either suitable for general classification problems such as Support Vector Machine (SVM), or specifically designed for image related
+                                problems such as Convolutional Neural Network (CNN),
+                                can be employed directly. However, different from the traditional binary classification problem, here one image from
+                                the satellite can belong to multiple classes. Therefore, to
+                                correctly classify each image becomes challenging.
+                                In our project, we implement three algorithms to tackle
+                                this problem: (1) Different Layers configurations of a commonly used CNN structure (2) VGG-16
+                                (3) and ResNet.                                
+                            </p>
+                        </div>
+                    </article>
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Software</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <ul>
+								<li>IDE: <a href="https://www.jetbrains.com/pycharm/" target="_blank">PyCharm</a></li>
+								<li>Deep Learning Framework: <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a></li>
+								<li>Programming Language: <a href="https://www.python.org/" target="_blank">Python</a></li>
+							</ul>
+                            <p>I will use different variations of Convolutional Neural Network for this problem. I will try different architectures and 
+								tune hyperparameters to achieve the best performance with the given dataset. Other than these, 
+								I will also experiment with several activation functions like sigmoid, softmax, tanh, 
+								etc to analyze which one works best for the given problem and why. In order
+								to give generalization capability to the model I will try different regularization techniques (L1, L2) as well.
+							</p>
+                        </div>
+                    </article>
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Architecture</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <p>Following is the layer by layer configuration and architecture of different variations of CNN.</p>
+                            <h3>4 - Layers</h3>
+                            <img src = "./images/4l-cnn-arch.PNG"/>
+                            <h3>6 - Layers</h3>
+                            <img src = "./images/6l-cnn-arch-1.PNG"/>
+                            <img src = "./images/6l-cnn-arch-2.PNG"/>
+                            <h3>8 - Layers</h3>
+                            <img src = "./images/8l-cnn-arch-1.PNG"/>
+                            <img src = "./images/8l-cnn-arch-2.PNG"/>
+                            <h3>10 - Layers</h3>
+                            <img src = "./images/10l-cnn-arch-1.PNG"/>
+                            <img src = "./images/10l-cnn-arch-2.PNG"/>
+                            <h3>VGG16</h3>
+                            <img src = "./images/vgg16-cnn-arch.PNG"/>
+                            <h3>ResNet</h3>
+                            <img src = "./images/resnet-cnn-arch.PNG"/>
+                        </div>
+					</article>
+					<article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Experimental Results</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <p> Dropout value of 0.25 and binary / sigmoid cross entropy loss function has been used for all the following configurations. </p>
+							<h3>4-Layer (relu) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">70.5% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.24 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.5% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.32 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.66 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>4-Layer (tanh) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">25.8% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.45 <em>Training Loss</em></a></li>
+								  <li><a href="#">62.1% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.27 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.68 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>4-Layer (sigmoid) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">28% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.45 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.5% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.28 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.67 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>6-Layer (relu) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">70% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.25 <em>Training Loss</em></a></li>
+								  <li><a href="#">26.7% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.60 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.46 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>6-Layer (tanh) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">72.8% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.23 <em>Training Loss</em></a></li>
+								  <li><a href="#">33.8% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">1.16 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.34 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>6-Layer (sigmoid) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">73% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.23 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.6% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.27 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.69 <em>F2 Score</em></a></li>
+                            </ul>
+                            <h3>8-Layer (relu) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">69% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.23 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.1% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.30 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.64 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>8-Layer (tanh) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">52% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.36 <em>Training Loss</em></a></li>
+								  <li><a href="#">55.8% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.33 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.63 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>8-Layer (sigmoid) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">72% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.23 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.2% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.28 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.68 <em>F2 Score</em></a></li>
+                            </ul>
+                            <h3>10-Layer (relu) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">69.6% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.25 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.7% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.29 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.62 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>10-Layer (tanh) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">72.03% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.23 <em>Training Loss</em></a></li>
+								  <li><a href="#">69.5% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.35 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.62 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>10-Layer (sigmoid) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">72.5% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.22 <em>Training Loss</em></a></li>
+								  <li><a href="#">71.8% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.32 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.67 <em>F2 Score</em></a></li>
+                            </ul>
+                            <h3>VGG16 (relu) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">65.1% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.23 <em>Training Loss</em></a></li>
+								  <li><a href="#">72% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.17 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.83 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>VGG16 (tanh) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">66.7% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.24 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.2% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.19 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.79 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>VGG16 (sigmoid) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">69.6% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.27 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.8% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.22 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.77 <em>F2 Score</em></a></li>
+                            </ul>
+                            <h3>ResNet (relu) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">63% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.52 <em>Training Loss</em></a></li>
+								  <li><a href="#">72% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.37 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.64 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>ResNet (tanh) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">68.4% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.28 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.7% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.26 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.67 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>ResNet (sigmoid) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">71.2% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.28 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.6% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.25 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.67 <em>F2 Score</em></a></li>
+							</ul>
+                        </div>
+					</article>
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Conclusions</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <p>
+                                VGG16 with ReLu activation function has produced best F2 Score (0.83), Training Accuracy and Validation Accuracy.
+								The numbers produced by this model are still not very impressive, we have great room for improvement.
+                            </p>
+                            <p>VGG16 appears to perform better than other architectures this could be due to the fact that VGG16
+                                has larger capacity and more parameters than the convolutional neural network.
+                                </p>
+                            <p>
+                                At the beginning of this project, I spent a large amount of
+                                time to find correct architecture. As a result, with the limited
+                                time to test and train models, I was not able to train CNN
+                                deeper than 10 layers. But after this project, here are a few
+                                more things I could continue to try.
+                                <ol>
+                                    <li><h3>Data Preprocessing</h3>
+                                        <p>There was vverfitting in the experiments
+                                            we conducted. Using image augmentation, through 
+                                            approaches like rotation, translation, flipping and cropping
+                                            can enable our network to train on more varied data and
+                                            be more robust to overfitting.</p></li>
+                                    <li><h3>Add model complexity</h3>
+                                        <p>For CNNs, it is always good to add more layers to the
+                                            existing model. I can gradually get better results with deeper
+                                            neural network and more training time.</p></li>
+                                    <li><h3>Regularisations</h3>
+                                        <p>In order to give generalization capability to the model,  
+                                            different regularization techniques (L1, L2) could be used.</p></li>
+                                    <li><h3>Different CNN architecture</h3>
+                                        <p>Such architectures include CNN-RNN and
+                                            hierarchical CNN. They might have produced a much better result.</p></li>
+                                    <li><h3>Modification of loss function</h3>
+                                        <p>Since precision is less important than recall, the binary / sigmoid cross entropy
+                                            loss function may not be the best loss function to
+                                            use. Combinations of loss functions, for example combining binary cross-entropy 
+                                            over a subset of labels, with softmax over atmospheric condition labels is another approach
+                                            worth attempting.</p></li>
+                                    <li><h3>Different CNN for different labels</h3>
+                                        <p>Since a single CNN always return 0 for some labels, it is
+                                            possible to train several simpler models for some labels on
+                                            top of the complex model. In this way, the training and test
+                                            accuracy may be able to increase more without the
+                                            interference of other labels.</p></li>
+                                    <li><h3>Optimizing Threshold</h3>
+                                        <p>A right classification threshold is critical for good performance of multi-label, 
+                                            recall oriented algorithms. Different combination of thresholds for each label is worth trying.</p></li>
+                                    <li><h3>Different CNN architecture</h3>
+                                        <p>Such architectures include CNN-RNN and
+                                            hierarchical CNN. They might have produced a much better result.</p></li>
+                                    
+                                </ol>
+
+                            </p>
+                        </div>
+                    </article>
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">References</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <ol>
+								<li><a href="http://cs231n.stanford.edu/reports/2017/pdfs/902.pdf" target="_blank">Amazon Rainforest Satellite Image Labelling Challenge</a></li>
+								<li><a href="http://cs231n.stanford.edu/reports/2017/pdfs/9.pdf" target="_blank">Labeling Satellite Imagery with Atmospheric Conditions and Land Cover</a></li>
+								<li><a href="http://cs231n.stanford.edu/reports/2017/pdfs/907.pdf" target="_blank">Classification of natural landmarks and human footprints of Amazon using
+									satellite data</a></li>
+							</ol>
+                        </div>
+                    </article>
+					<!-- end entry -->
+                </div>
+                <!-- end main -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end content-wrap -->
+      
+        <!-- Java Script
+   ================================================== -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

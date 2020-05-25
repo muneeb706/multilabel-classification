@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!-->
+<html class="no-js" lang="en">
+    <!--<![endif]-->
+    <head>
+        <!--- Basic Page Needs
+   ================================================== -->
+        <meta charset="utf-8">
+        <title>DL-Project</title>
+        <meta name="description" content="Progress report of deep learning project in spring 2020">
+        <meta name="author" content="muneeb-shahid">
+        <!-- mobile specific metas
+   ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- CSS
+    ================================================== -->
+        <link rel="stylesheet" href="css/default.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/media-queries.css">
+        <!-- Script
+   ================================================== -->
+        <script src="js/modernizr.js"></script>
+    </head>
+    <body>
+	   <!-- Header
+   ================================================== -->
+   <header id="top">
+
+   	<div class="row">
+		<div class="header-content twelve columns">
+			<h1 id="logo-text"><a href="progress.html" title="">Progress Report</a></h1>
+			<p id="intro">Deep Learning Project Progress Report Spring 2020</p>
+		</div>
+	</div>
+
+	   <nav id="nav-wrap"> 
+	   
+	   	<div class="row">    		            
+
+			   	<ul id="nav" class="nav">
+			      	<li ><a href="index.html">Proposal</a></li>
+					<li class="current"><a href="progress.html">Progress Report</a></li>
+					<li><a href="final.html">Final Report</a></li>	
+			   	</ul> <!-- end #nav -->			   	 
+
+	   	</div> 
+
+	   </nav> <!-- end #nav-wrap --> 	     
+
+   </header> <!-- Header End -->
+		<br>
+        <div class="row">
+            <div class="header-content twelve columns">
+                <h1 id="logo-text">
+                    <a href="#" title="">Multilabel (Atmospheric Conditions and Land Cover) Classification of Amazon Rainforest Satellite Images</a>
+                </h1>
+                <p id="intro">Muneeb Shahid</p>
+            </div>
+        </div>
+        <!-- Content
+   ================================================== -->
+        <div id="content-wrap">
+            <div class="row">
+                <div id="main" class="tweleve columns">
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">What have we achieved so far ? </a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <ol>
+								<li>Created a CNN model using tensorflow and keras.</li>
+								<li>Read the training dataset and preprocessed it for improving model performance in terms of accuracy and training time.</li>
+								<li>Implemented the model with two different Architectures (4-Layer CNN, 6-Layer CNN). </li>
+								<li>Implemented K-Cross Validation for calucluating validation accuracy of the model.</li>
+								<li>Measured the performance of the model for above mentioned two different architectures.</li>
+								<li>Measured the performance of the model with different activation functions (relu, tanh, sigmoid) for both of the architectures.</li>
+								<li>Calculated F2 Score of the model.</li>
+							</ol>
+                        </div>
+					</article>
+					<article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Experimental Results</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+							<p> Dropout value of 0.25 and binary / sigmoid cross entropy loss function has been used for all the following configurations. </p>
+							<h3>4-Layer (relu) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">70.5% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.24 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.5% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.32 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.66 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>4-Layer (tanh) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">25.8% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.45 <em>Training Loss</em></a></li>
+								  <li><a href="#">62.1% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.27 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.68 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>4-Layer (sigmoid) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">28% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.45 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.5% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.28 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.67 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>6-Layer (relu) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">70% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.25 <em>Training Loss</em></a></li>
+								  <li><a href="#">26.7% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.60 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.46 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>6-Layer (tanh) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">72.8% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.23 <em>Training Loss</em></a></li>
+								  <li><a href="#">33.8% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">1.16 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.34 <em>F2 Score</em></a></li>
+							</ul>
+							<h3>6-Layer (sigmoid) </h3>
+							<ul class="stats-tabs">
+								  <li><a href="#">73% <em>Training Accuracy</em></a></li>
+								  <li><a href="#">0.23 <em>Training Loss</em></a></li>
+								  <li><a href="#">72.6% <em>Validation Accuracy</em></a></li>
+								  <li><a href="#">0.27 <em>Validation Loss</em></a></li>
+								  <li><a href="#">0.69 <em>F2 Score</em></a></li>
+							</ul>
+                        </div>
+					</article>
+					<article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Problems and tasks for the future</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+							<p> So far 6-layer CNN with sigmoid activation function has produced best F2 Score, Training Accuracy and Validation Accuracy.
+								The numbers produced by this model are still not very impressive, we have great room for improvement. For the future,
+								more variations of CNN like 8-Layer CNN, 10-Layer CNN, VGG-16 and ResNet (if we don't achieve desired results) will be experimented.
+								Another problem is the skewed nature of the dataset, appropriate techniques needs to be implemented to tackle this problem.
+							</p>
+                        </div>
+					</article>
+					<!-- end entry -->
+					
+                </div>
+                <!-- end main -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end content-wrap -->
+      
+        <!-- Java Script
+   ================================================== -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

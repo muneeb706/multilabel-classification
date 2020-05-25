@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!-->
+<html class="no-js" lang="en">
+    <!--<![endif]-->
+    <head>
+        <!--- Basic Page Needs
+   ================================================== -->
+        <meta charset="utf-8">
+        <title>DL-Project</title>
+        <meta name="description" content="Project proposal of deep learning project in spring 2020">
+        <meta name="author" content="muneeb-shahid">
+        <!-- mobile specific metas
+   ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- CSS
+    ================================================== -->
+        <link rel="stylesheet" href="css/default.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/media-queries.css">
+        <!-- Script
+   ================================================== -->
+        <script src="js/modernizr.js"></script>
+    </head>
+    <body>
+	   <!-- Header
+   ================================================== -->
+   <header id="top">
+
+   	<div class="row">
+		<div class="header-content twelve columns">
+
+			<h1 id="logo-text"><a href="index.html" title="">Project Proposal</a></h1>
+			<p id="intro">Deep Learning Project Proposal Spring 2020</p>
+
+		</div>
+	</div>
+
+
+	   <nav id="nav-wrap"> 
+
+	   
+	   	<div class="row">    		            
+
+			   	<ul id="nav" class="nav">
+			      	<li class="current"><a href="index.html">Proposal</a></li>
+					<li><a href="progress.html">Progress Report</a></li>
+					<li><a href="final.html">Final Report</a></li>	
+			   	</ul> <!-- end #nav -->			   	 
+
+	   	</div> 
+
+	   </nav> <!-- end #nav-wrap --> 	     
+
+   </header> <!-- Header End -->
+		<br>
+        <div class="row">
+            <div class="header-content twelve columns">
+                <h1 id="logo-text">
+                    <a href="#" title="">Multilabel (Atmospheric Conditions and Land Cover) Classification of Amazon Rainforest Satellite Images</a>
+                </h1>
+                <p id="intro">Muneeb Shahid</p>
+            </div>
+        </div>
+        <!-- Content
+   ================================================== -->
+        <div id="content-wrap">
+            <div class="row">
+                <div id="main" class="tweleve columns">
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Project Idea</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <p>To help governments and local stakeholders understand the location of deforestation and human encroachment on forests, 
+								I will analyze small-scale deforestation and human activity influences from Amazon Rainforest satellite images. 
+								The goal of this analysis is to correctly label images with atmospheric conditions, common land cover / land use phenomena, 
+								and rare land cover / land use phenomena. My algorithm will use a convolutional network to output a set of predicted labels. 
+								In this project, I will explore and analyze how different architectures of convolutional neural network models perform in 
+								terms of training time, f2 score and generalization ability.</p>
+                        </div>
+					</article>
+					<article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Application Survey (Related Work)</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+							<p>Research on satellite image processing has over 20 years
+								history. Simple neural network structure with only fully
+								connected layers has been used as a satellite image classifier
+								early in 1995. In addition, methods other than neural networks are still
+								being used for specific tasks. Statistical methods like
+								contrast statistical analysis (CSA), singular value
+								decomposition (SVD), temporally contiguous robust
+								matrix completion (TECROMAC) and non-additive
+								entropy has been used for quality evaluation, image
+								de-noising, matrix completion, image classification and
+								segmentation. Other than these, multi-class
+								SVMs has also been adopted to classify the airborne sensor data,
+								in conjunction with a few other methods such as discriminant analysis, decision tree, and multilayer perceptron neural network.
+								Multi-label classification can be seen as a related problem to image segmentation,
+								where the classes of detected image segments become labels of the image. 
+								A key aspect of the problem of labeling satellite imagery
+								involves dealing with correlated labels. 
+								Multi-label classification has been extensively studied, and a few types of
+								approaches dominate.</p>
+                        </div>
+					</article>
+					<article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Formulation Development (Proposed Algorithm)</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+							<p>
+								Multi-label classification
+								can be interpreted as a ranking problem, where the authors combine a ranking objective with a
+								convolutional neural network to beat prevalent benchmarks.
+								Recent work has demonstrated the possibility of using Recurrent Neural Networks coupled with Convolutional
+								Neural Networks for multi-label image annotation, using
+								approaches that can be compared to the task of image captioning. In recent years, especially since 2015,
+								training a deep neural network becomes easier with larger
+								computational power, bigger training datasets and better
+								image quality. Thus, convolutional neural network has
+								become a popular tool for satellite image analysis in many
+								areas of application, including image classification, land
+								use classification, pattern detection in urban
+								environment, solar power plant detection,
+								orthoimagery segmentation, nighttime sky/cloud
+								segmentation and face-like structure detection.
+								Also, with the emergence of large dataset with
+								high-resolution remote sensing (HRRS) imagery, different
+								neural network models have been created and tuned for
+								higher accuracy. Examples models such as traditional
+								neural network, deep convolutional neural network,
+								multi-channel pulse coupled neural network (m-PCNN)
+								and recurrent neural network, have all been used to
+								achieve a high accuracy on high-resolution satellite images.
+								For this project, I will mainly evaluate the performance of
+								deep convolutional neural networks on high-resolution
+								Amazon satellite images.
+								</p>
+                        </div>
+					</article>
+					<!-- end entry -->
+					<article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Theory (Comparison of different approaches)</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+							<p>There are two common loss functions for multilabel
+                                classification – sigmoid cross entropy loss and support
+                                vector machine (SVM) with hinge loss. 
+                                As this is a multi-label classification problem, the primary loss used during training is binary / sigmoid cross-entropy. This
+                                loss optimizes the performance for each class independently.
+                            </p>
+                            <p> 
+                                Previous research typically uses coarse resolution images to study changes in rainforest, which is not enough
+                                for small-scale deforestation. Now we are provided with
+                                a high resolution dataset of the whole Amazon landform
+                                from the satellite.
+                                This is a subset of the general classification problem,
+                                which has been massively discussed in the context of not
+                                only image processing, but also machine learning and
+                                even deep learning. Methods either suitable for general classification problems such as Support Vector Machine (SVM), or specifically designed for image related
+                                problems such as Convolutional Neural Network (CNN),
+                                can be employed directly. However, different from the traditional binary classification problem, here one image from
+                                the satellite can belong to multiple classes. Therefore, to
+                                correctly classify each image becomes challenging.
+                                In our project, we implement three algorithms to tackle
+                                this problem: (1) Different Layers configurations of a commonly used CNN structure (2) VGG-16
+                                (3) and ResNet.                                
+                            </p>
+                        </div>
+                    </article>
+                    <!-- end entry -->
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Dataset Details</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+							<p>The dataset is provided by <a href="https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data" target="_blank">Kaggle</a>
+							which contains 40479 labeled satellite images and there are 17 classes. 
+							These classes address different aspects of the image content, for example, atmospheric conditions and land cover / user.  
+							In the training dataset, the labels or classes are not evenly distributed. There are two types of images, JPG and TIF. 
+							Both JPG and TIF images are 256x256 pixels. The JPG images have 3 channels - Red, Green, and Blue. 
+							The TIF images have 4 channels - Red, Green, Blue, and IR.  The labels have significant correlations. 
+							For example, every image has exactly one atmospheric condition label from among clear, haze, partly cloudy and cloudy. 
+							Labels like “habitation” tend to occur with other markers of human activity. “Cultivation” and “agriculture” don’t co-occur in images.</p>
+							<img src="./images/sample-train-data.PNG"/>
+							<img src="./images/class-label-distribution.PNG"/>
+							<ul>
+								<li>Dataset Link: <a href="https://www.kaggle.com/c/planet-understanding-the-amazon-from-space/data" target="_blank">Planet: Understanding the Amazon from Space</a></li>
+							</ul>
+                        </div>
+                    </article>
+                    <!-- end entry -->
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Software</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+							<ul>
+								<li>IDE: <a href="https://www.jetbrains.com/pycharm/" target="_blank">PyCharm</a></li>
+								<li>Deep Learning Framework: <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a></li>
+								<li>Programming Language: <a href="https://www.python.org/" target="_blank">Python</a></li>
+							</ul>
+                            <p>I will use Convolutional Neural Network for this problem. I will try different architectures and 
+								tune hyperparameters to achieve the best performance with the given dataset. Other than these, 
+								I will also experiment with several activation functions like sigmoid, softmax, tanh, 
+								etc to analyze which one works best for the given problem and why. In order
+								to give generalization capability to the model I will try different regularization techniques (L1, L2) as well.
+							</p>
+                        </div>
+                    </article>
+                    <!-- end entry -->
+                    <article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Papers to read</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+                            <ol>
+								<li><a href="http://cs231n.stanford.edu/reports/2017/pdfs/902.pdf" target="_blank">Amazon Rainforest Satellite Image Labelling Challenge</a></li>
+								<li><a href="http://cs231n.stanford.edu/reports/2017/pdfs/9.pdf" target="_blank">Labeling Satellite Imagery with Atmospheric Conditions and Land Cover</a></li>
+								<li><a href="http://cs231n.stanford.edu/reports/2017/pdfs/907.pdf" target="_blank">Classification of natural landmarks and human footprints of Amazon using
+									satellite data</a></li>
+							</ol>
+                        </div>
+                    </article>
+					<!-- end entry -->
+					<article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Teammate</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+							<p>I will not have a teammate, I will work alone in this project.</p>
+					    </div>
+					</article>
+					<!-- end entry -->
+					<article class="entry">
+                        <header class="entry-header">
+                            <h2 class="entry-title">
+                                <a href="#" title="">Project Milestones</a>
+							</h2>
+							<br>
+                        </header>
+                        <div class="entry-content">
+							<ul>
+								<li><h4>Progress Report: </h4>
+									<p>Experimental Results of 4-layer, 6-layer model of 
+									CNN with ReLU, Sigmoid, tanh activation functions and other hyperparameters will be submitted. 
+									Experimental results will contain values of all hyperparameters along with training, validation accuracy and f2 score. 
+									</p>
+								</li>
+								<li><h4>Final Report: </h4>
+									<p>Experimental Results of 8-layer, 10-layer, VGG-16 model of CNN with ReLU, Sigmoid, tanh activation functions 
+									and other hyperparameters will be submitted. Experimental Results will contain values of all hyperparameters along with
+									the training, validation and testing accuracy.
+									This report will also contain detailed analysis regarding comparison of performance of different CNN models. 
+									</p>
+								</li>
+							</ul>
+							<b>Note:</b><p> Quality of the Model will be judged based on F2 Score.</p>
+                        </div>
+                    </article>
+					<!-- end entry -->
+                </div>
+                <!-- end main -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end content-wrap -->
+      
+        <!-- Java Script
+   ================================================== -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
