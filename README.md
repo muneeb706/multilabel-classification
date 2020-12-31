@@ -8,7 +8,7 @@ In this project, we take on the Kaggle challenge “Planet: Understanding the Am
 
 
 ## Algorithms / Models
-In this project different architectures of Convolutional Neural Network is used for this problem. I have also tuned hyperparameters to achieve the best performance with the given dataset. Other than these, I have also experimented with several activation functions like sigmoid, softmax, tanh, etc to analyze which one works best for the given problem and why. Following architecutred of CNN were implemented and used for this project:
+In this project different architectures of Convolutional Neural Network is used for this problem. I have also tuned hyperparameters to achieve the best performance with the given dataset. Other than these, I have also experimented with several activation functions like sigmoid, softmax, tanh, etc to analyze which one works best for the given problem and why. Following architecutres of CNN were implemented and used for this project:
 
 - [4 Layer CNN](https://github.com/muneeb706/multilabel-classification/blob/master/cnn-models/4L-CNN.py)
 - [6 Layer CNN](https://github.com/muneeb706/multilabel-classification/blob/master/cnn-models/6L-CNN.py)
